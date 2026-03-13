@@ -15,7 +15,6 @@
         .status-off { background-color: #f1f5f9; color: #94a3b8; }
         .timeline-row:hover { background-color: #f8fafc; transition: background 0.2s; }
         
-        /* 모바일 화면 최적화 */
         @media (max-width: 640px) {
             .mobile-compact { font-size: 11px !important; }
             .mobile-padding { padding: 0.5rem 0.25rem !important; }
@@ -116,9 +115,9 @@
                     <i class="fa-solid fa-circle-info"></i> 운영 및 시간 산정 기준
                 </h3>
                 <ul class="text-[11px] sm:text-xs text-indigo-800/80 space-y-2 leading-relaxed">
+                    <li>• <strong>식사 시간 통일:</strong> 12:00~13:00 전 강사 동시 식사 진행 (해당 시간 전시장 비운영)</li>
                     <li>• <strong>근무시간/휴게:</strong> 실제 업무 수행 시간과 0.5h의 휴게 시간을 포함한 시간입니다.</li>
-                    <li>• <strong>식사:</strong> 11:30~14:30 사이의 교대 식사 1h은 근무 산정에서 제외됩니다.</li>
-                    <li>• <strong>상주 원칙 보장:</strong> 전 시간대 2명 이상의 근무자가 현장을 상주하며 관리합니다.</li>
+                    <li>• <strong>상주 원칙 보장:</strong> 식사 시간을 제외한 전 시간대 2명 이상의 근무자가 현장을 관리합니다.</li>
                 </ul>
             </div>
             
@@ -128,29 +127,25 @@
                     <i class="fa-solid fa-clock-rotate-left"></i> 교대 상세 일정
                 </h3>
                 <div class="space-y-3">
-                    <div class="flex items-center text-[11px] sm:text-xs">
-                        <span class="w-24 font-semibold text-slate-600">11:30 - 12:30</span>
-                        <span class="px-2 py-0.5 rounded bg-blue-100 text-blue-700 font-medium">최윤정 식사 (1h)</span>
-                    </div>
-                    <div class="flex items-center text-[11px] sm:text-xs">
-                        <span class="w-24 font-semibold text-slate-600">12:30 - 13:30</span>
-                        <span class="px-2 py-0.5 rounded bg-blue-100 text-blue-700 font-medium">이성전 식사 (1h)</span>
-                    </div>
-                    <div class="flex items-center text-[11px] sm:text-xs pb-2 border-b">
-                        <span class="w-24 font-semibold text-slate-600">13:30 - 14:30</span>
-                        <span class="px-2 py-0.5 rounded bg-blue-100 text-blue-700 font-medium">김정영 식사 (1h)</span>
+                    <div class="flex items-center text-[11px] sm:text-xs border-b pb-2">
+                        <span class="w-24 font-semibold text-slate-600">12:00 - 13:00</span>
+                        <span class="px-2 py-0.5 rounded bg-blue-100 text-blue-700 font-bold">전 강사 동시 식사 (1h)</span>
                     </div>
                     <div class="flex items-center text-[11px] sm:text-xs pt-1">
-                        <span class="w-24 font-semibold text-slate-600">15:00 - 15:30</span>
+                        <span class="w-24 font-semibold text-slate-600 text-indigo-600 font-bold underline">14:30 - 15:00</span>
                         <span class="px-2 py-0.5 rounded bg-yellow-100 text-yellow-700 font-bold">최윤정 휴게 (0.5h)</span>
                     </div>
                     <div class="flex items-center text-[11px] sm:text-xs">
-                        <span class="w-24 font-semibold text-slate-600">15:30 - 16:00</span>
+                        <span class="w-24 font-semibold text-slate-600">15:00 - 15:30</span>
                         <span class="px-2 py-0.5 rounded bg-yellow-100 text-yellow-700 font-bold">이성전 휴게 (0.5h)</span>
                     </div>
                     <div class="flex items-center text-[11px] sm:text-xs">
-                        <span class="w-24 font-semibold text-slate-600">16:00 - 16:30</span>
+                        <span class="w-24 font-semibold text-slate-600">15:30 - 16:00</span>
                         <span class="px-2 py-0.5 rounded bg-yellow-100 text-yellow-700 font-bold">김정영 휴게 (0.5h)</span>
+                    </div>
+                    <div class="flex items-center text-[11px] sm:text-xs border-t pt-2 mt-2">
+                        <span class="w-24 font-semibold text-slate-600 text-indigo-600">안내</span>
+                        <span class="text-slate-500">14:30부터 릴레이 휴게가 시작됩니다.</span>
                     </div>
                 </div>
             </div>
@@ -159,15 +154,13 @@
 
     <script>
         const scheduleData = [
-            { time: "10:00 - 11:30", a: "work", b: "work", c: "work", count: "3명" },
-            { time: "11:30 - 12:30", a: "work", b: "work", c: "lunch", count: "2명" },
-            { time: "12:30 - 13:30", a: "work", b: "lunch", c: "work", count: "2명" },
-            { time: "13:30 - 14:30", a: "lunch", b: "work", c: "work", count: "2명" },
-            { time: "14:30 - 15:00", a: "work", b: "work", c: "work", count: "3명" },
-            { time: "15:00 - 15:30", a: "work", b: "work", c: "break", count: "2명" },
-            { time: "15:30 - 16:00", a: "work", b: "break", c: "work", count: "2명" },
-            { time: "16:00 - 16:30", a: "break", b: "work", c: "work", count: "2명" },
-            { time: "16:30 - 17:00", a: "work", b: "work", c: "work", count: "3명" }
+            { time: "10:00 - 12:00", a: "work", b: "work", c: "work", count: "3명" },
+            { time: "12:00 - 13:00", a: "lunch", b: "lunch", c: "lunch", count: "0명" },
+            { time: "13:00 - 14:30", a: "work", b: "work", c: "work", count: "3명" },
+            { time: "14:30 - 15:00", a: "work", b: "work", c: "break", count: "2명" },
+            { time: "15:00 - 15:30", a: "work", b: "break", c: "work", count: "2명" },
+            { time: "15:30 - 16:00", a: "break", b: "work", c: "work", count: "2명" },
+            { time: "16:00 - 17:00", a: "work", b: "work", c: "work", count: "3명" }
         ];
 
         function getStatusClass(status) {
@@ -195,14 +188,16 @@
             const tr = document.createElement('tr');
             tr.className = 'timeline-row mobile-compact';
             
-            const isThree = row.count === "3명" ? "font-bold text-indigo-600 bg-indigo-50/30" : "text-slate-500";
+            let countStyle = "text-slate-500";
+            if (row.count === "3명") countStyle = "font-bold text-indigo-600 bg-indigo-50/30";
+            if (row.count === "0명") countStyle = "font-bold text-red-600 bg-red-50";
             
             tr.innerHTML = `
                 <td class="p-3 sm:p-4 font-medium text-slate-400 border-r border-slate-50 mobile-padding whitespace-nowrap">${row.time}</td>
                 <td class="p-2 sm:p-4 text-center mobile-padding"><span class="inline-block w-full sm:w-20 px-1 py-1 sm:py-1.5 rounded-lg font-bold ${getStatusClass(row.a)}">${getStatusText(row.a)}</span></td>
                 <td class="p-2 sm:p-4 text-center mobile-padding"><span class="inline-block w-full sm:w-20 px-1 py-1 sm:py-1.5 rounded-lg font-bold ${getStatusClass(row.b)}">${getStatusText(row.b)}</span></td>
                 <td class="p-2 sm:p-4 text-center mobile-padding"><span class="inline-block w-full sm:w-20 px-1 py-1 sm:py-1.5 rounded-lg font-bold ${getStatusClass(row.c)}">${getStatusText(row.c)}</span></td>
-                <td class="p-3 sm:p-4 text-center mobile-padding font-bold ${isThree}">${row.count}</td>
+                <td class="p-3 sm:p-4 text-center mobile-padding font-bold ${countStyle}">${row.count}</td>
             `;
             tbody.appendChild(tr);
         });
